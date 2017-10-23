@@ -1,0 +1,148 @@
+.tooltip {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-family: arial;
+    font-size: 12px;
+    text-shadow: 0px 1px 1px #000;
+    color: #fff;
+    z-index: 1;
+    margin: -64px 0 0 -2px;
+}
+
+body {
+    position: relative;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+    .button {
+        transform-origin: center center;
+        position: relative;
+        text-align: center;
+        margin-top: 100px;
+        font-size: 0;
+        width: 70px;
+        height: 70px;
+        overflow: hidden;
+        transition: .3s;
+        box-shadow: inset 0px 0px 20px 6px rgba(0, 0, 0, 0.3);
+        border-radius: 50%;
+        background: #328FFF;
+        color: #fff;
+        margin: 100px auto;
+        &.run {
+            width: 140px;
+            border-radius: 5px;
+            .button-trash {
+                i {
+                    padding: 0;
+                    width: 0;
+                    height: 0;
+                    overflow: hidden;
+                    transform: translateX(-100%);
+                    opacity: 0;
+                }
+            }
+            .button-close {
+                transition: .1s;
+                i {
+                    font-size: 50px;
+                    transform: translateY(0%);
+                    opacity: 1;
+                }
+            }
+            .button-check {
+                i {
+                    font-size: 50px;
+                    transform: translateY(0%);
+                    opacity: 1;
+                }
+            }
+        }
+        &.check {
+            .button-close {
+                transition: none;
+                i {
+                    transform: translateY(-100%);
+                    opacity: 0;
+                }
+            }
+            .button-check {
+                i {
+                    transform: translateY(-100%);
+                    opacity: 0;
+                }
+            }
+            #preloader {
+                transition: .3s;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                opacity: 1;
+                height: 30px;
+                width: 30px;
+                border: 5px solid rgba(255, 255, 255, 0.45);
+                border-top: 5px solid rgb(255, 255, 255);
+            }
+        }
+        &.diss {
+            opacity: 0;
+        }
+        &.delete {
+            display: none;
+        }
+        .button-delete {
+            display: inline;
+            i {
+                cursor: pointer;
+                font-size: 0px;
+                padding: 10px;
+                text-align: center;
+                transition: .4s;
+                opacity: 0;
+            }
+        }
+        .button-trash {
+            color: #FFFFFF;
+            text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.45);
+            i {
+                font-size: 50px;
+                opacity: 1;
+            }
+        }
+        .button-close {
+            color: #FF2828;
+            text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.45);
+        }
+        #preloader {
+            position: absolute;
+            opacity: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            height: 0;
+            width: 0;
+            border-radius: 50%;
+            animation: rotate .3s infinite linear;
+            margin: 0;
+        }
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        .button-check {
+            color: #00DA00;
+            text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.45);
+        }
+    }
+}
